@@ -50,14 +50,33 @@ int pop(){
             
 }
 
+int peek(int pos)
+{
+    struct node* ptr=top;
+    for (int i = 0; i < pos-1 && ptr!=NULL; i++)
+    {
+        ptr = ptr->next;
+    }
+    
+    if(ptr!=NULL)
+        return ptr->data;
+    else
+        return -1;
+}
+
 int main() {
 push(20);
 push(25);
 push(10);
 push(15);
-int l = pop();
+int l;
+l = pop();
 
-printf(" Popped Number is %d",l);
+printf("Popped Number is %d\n",l);
+l = peek(2);
+
+printf("1 position Number is %d",l);
+
 
 
 
