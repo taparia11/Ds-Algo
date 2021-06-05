@@ -38,7 +38,7 @@ void push(int n){
 
 int pop(){
     struct node* p;
-    if (isEmpty) 
+    if (isEmpty()) 
     {
        return -1;
     }
@@ -59,7 +59,7 @@ int l = pop();
 
 printf(" Popped Number is %d",l);
 
-print();
+
 
 return 0;
 }
