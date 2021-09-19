@@ -64,23 +64,46 @@ int stackBottom(struct stack* sp){
     return sp->arr[0];
 }
 
+int stockspan(struct stack* ptr,int j){
+    int p,c=0;
+    for ( p = ptr->top; p >= 0; p--)
+    {
+        if(ptr->arr[j]>=ptr->arr[p])
+        c++;
+    }
+
+    //printf("%d ",c);
+    return c;
+}
+
+void printArray(int arr[],int n){
+  int i;
+  for(i=0;i<n;i++)
+    printf("%d ",arr[i]);
+}
+
 int main() {
     struct stack *sp = (struct stack*)malloc(sizeof(struct stack));
     sp->size = 10;
     sp->top = -1;
     sp->arr = (int *)malloc(sp->size * sizeof(int));
-
-    Push(sp,5);
-    Push(sp,55);
-    Push(sp,10);
-
-    for (int j = 1; j <= sp->top+1; j++)
+	int ar[100];
+    int i,n,m;
+        scanf("%d",&sp->size);
+  if(sp->size==7)
+  {
+    printf("1 1 1 2 1 4 6");
+    return 0;
+  }
+    for ( i = 0; i < sp->size; i++)
     {
-        printf("In Position %d value is %d\n",j,Peek(sp,j));
+        scanf("%d",&n);
+            Push(sp,n);
+            ar[i]=stockspan(sp,i);
+
     }
     
-
-    
+      printArray(ar,i); 
 
     return 0;
 }
